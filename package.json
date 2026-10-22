@@ -1,0 +1,17 @@
+{
+  "name": "railmate-bd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+    "scripts": {
+    "test": "vitest run",
+    "sync": "node scripts/sync-core.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^5.0.5"
+  }
+}

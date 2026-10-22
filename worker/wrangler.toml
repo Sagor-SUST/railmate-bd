@@ -1,0 +1,11 @@
+name = "railmate-worker"
+main = "index.js"
+compatibility_date = "2026-10-01"
+
+[triggers]
+crons = ["*/15 * * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "railmate-db"
+database_id = "b535ae6c-f6f7-44a7-bd67-ab2612f4322a"

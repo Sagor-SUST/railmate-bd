@@ -1,0 +1,45 @@
+body {
+  width: 420px;
+  margin: 0;
+  padding: 12px;
+  font-family: -apple-system, system-ui, sans-serif;
+  font-size: 13px;
+}
+h1 { font-size: 18px; margin: 0 0 8px; }
+h2 { font-size: 14px; margin: 14px 0 6px; }
+.banner {
+  background: #fff3cd; border: 1px solid #e0c46c;
+  padding: 6px 8px; border-radius: 6px; margin: 0 0 8px; font-size: 12px;
+}
+label { display: block; margin: 8px 0 2px; font-weight: 600; font-size: 12px; }
+input, select, textarea { width: 100%; box-sizing: border-box; padding: 5px; font-size: 13px; }
+.row { display: flex; gap: 8px; }
+.row > div { flex: 1; }
+.buttons { display: flex; gap: 6px; margin: 10px 0 6px; }
+button { padding: 6px 12px; cursor: pointer; }
+progress { width: 100%; }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; font-size: 11px; }
+th, td { border: 1px solid #ccc; padding: 3px 5px; text-align: center; min-width: 34px; }
+td.available { background: #d4edda; }
+td.zero { background: #eee; color: #666; }
+td.unknown { background: #fff; color: #aaa; }
+td.failed { background: #f8d7da; color: #a00; font-weight: 700; }
+td.intended { outline: 2px solid #0b5ed7; outline-offset: -2px; }
+.legend { font-size: 11px; color: #555; }
+.card { border: 1px solid #ccc; border-radius: 6px; padding: 8px; margin-bottom: 8px; }
+.card h3 { margin: 0 0 4px; font-size: 13px; }
+.card ul { margin: 4px 0; padding-left: 18px; }
+.card .why { color: #555; font-size: 11px; }
+.sim { color: #8a6d00; font-size: 11px; font-weight: 600; }
+
+.review { white-space: pre-line; background: #eef4ff; border-radius: 6px; padding: 6px 8px; font-size: 12px; }
+.review:empty { display: none; }
+details { margin: 8px 0; }
+
+.card button { margin-top: 4px; }
+.summary { border: 2px solid #0b5ed7; border-radius: 6px; padding: 8px; }
+.summary table { width: 100%; font-size: 12px; }
+.summary td, .summary th { text-align: left; }
+.summary .warn { color: #8a3b00; font-size: 12px; margin: 2px 0; }
+.summary .total { font-weight: 700; margin-top: 6px; }

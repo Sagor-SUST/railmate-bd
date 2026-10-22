@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RailMate BD</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h1>RailMate BD</h1>
+    <p class="banner">Development build: all data is SIMULATED.</p>
+    <section aria-label="Describe your trip">
+      <label for="nl">Describe your trip (optional, uses Gemini)</label>
+      <textarea id="nl" rows="3"
+        placeholder="e.g. Alpha to Echo tomorrow in Snigdha on Demo Express, cheapest practical"></textarea>
+      <div class="buttons"><button id="understand">Understand</button></div>
+      <p id="aiStatus" role="status"></p>
+      <div id="aiReview" class="review"></div>
+    </section>
+
+    <details>
+      <summary>AI settings</summary>
+      <label for="geminiKey">Gemini API key (stored only in this browser)</label>
+      <input id="geminiKey" type="password" autocomplete="off" />
+      <div class="buttons">
+        <button id="saveKey">Save key</button>
+        <button id="removeKey">Remove key</button>
+      </div>
+      <p id="keyStatus" role="status"></p>
+    </details>
+    
+
+    <section aria-label="Trip details">
+      <label for="train">Train</label>
+      <input id="train" value="Demo Express" />
+
+      <div class="row">
+        <div>
+          <label for="origin">From</label>
+          <select id="origin"></select>
+        </div>
+        <div>
+          <label for="destination">To</label>
+          <select id="destination"></select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="date">Date</label>
+          <input id="date" type="date" />
+        </div>
+        <div>
+          <label for="seatClass">Class</label>
+          <select id="seatClass">
+            <option>SNIGDHA</option>
+            <option>S_CHAIR</option>
+            <option>SHOVAN</option>
+            <option>AC_S</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="preference">Priority</label>
+      <select id="preference">
+        <option value="balanced">Balanced</option>
+        <option value="cheapest">Cheapest practical</option>
+        <option value="fewest_tickets">Fewest tickets</option>
+      </select>
+
+      <label for="stops">Stops in order (one per line, editable)</label>
+      <textarea id="stops" rows="4"></textarea>
+    </section>
+
+    <div class="buttons">
+      <button id="scan">Scan</button>
+      <button id="pause" disabled>Pause</button>
+      <button id="stop" disabled>Stop</button>
+    </div>
+
+    <progress id="progress" value="0" max="1"></progress>
+    <p id="status" role="status">Ready.</p>
+
+    <h2>Availability matrix</h2>
+    <div class="scroll"><table id="matrix"></table></div>
+    <p class="legend">
+      Green = available, grey 0 = sold out, "?" = not checked, "!" = failed (not the same as 0).
+    </p>
+
+    <h2>Best routes</h2>
+    <div id="routes"></div>
+
+    <h2>Booking summary</h2>
+    <div id="summary">Pick a route card to see its booking summary.</div>
+
+    <h2>Cloud reminders</h2>
+    <details>
+      <summary>Reminder settings</summary>
+      <label for="workerUrl">Worker URL</label>
+      <input id="workerUrl" placeholder="https://railmate-worker.xxx.workers.dev" />
+      <label for="workerToken">API token</label>
+      <input id="workerToken" type="password" autocomplete="off" />
+      <div class="buttons"><button id="saveWorker">Save settings</button></div>
+      <p id="workerStatus" role="status"></p>
+    </details>
+    <label for="releaseAt">Expected ticket release (your local time)</label>
+    <input id="releaseAt" type="datetime-local" />
+    <label for="leadMinutes">Notify me this many minutes before</label>
+    <input id="leadMinutes" type="number" min="0" max="1440" value="30" />
+    <label><input id="releaseEstimate" type="checkbox" checked style="width:auto" />
+      This release time is an estimate (not verified)</label>
+    <div class="buttons">
+      <button id="saveReminder">Save reminder</button>
+      <button id="refreshReminders">Refresh list</button>
+    </div>
+    <p id="reminderStatus" role="status"></p>
+    <div id="reminderList"></div>
+
+    <p><a href="https://eticket.railway.gov.bd/" target="_blank" rel="noopener">
+      Open the official booking website</a></p>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

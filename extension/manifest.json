@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "RailMate BD",
+  "version": "0.2.0",
+  "description": "Split-ticket finder for Bangladesh Railway (development build, simulated data).",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "RailMate BD"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*",
+    "https://railmate-worker.railmate-sagor.workers.dev/*"
+  ]
+}
